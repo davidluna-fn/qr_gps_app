@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         instance = this;
-        txt_location = (TextView)findViewById(R.id.txt_location);
+        txt_location = (TextView)findViewById(R.id.txt_register);
 
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -127,6 +127,4 @@ public class MainActivity extends AppCompatActivity {
         Intent scanButton = new Intent(this, MainActivity4.class);
         startActivity(scanButton);
     }
-
-
 }

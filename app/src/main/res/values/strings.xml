@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">LectorQR</string>
-    <string name="boton_form">Formulario</string>
     <string name="boton_scan">Escanear QR</string>
-    <string name="boton_home">Escanear</string>
-    <string name="texto_telefono">Ingrese su número de celular</string>
-    <string name="pregunta1">¿Ha tenido síntomas relacionados con COVID-19?</string>
-    <string name="pregunta2">¿Ha estado en contacto con personas postivas para COVID-19?</string>
-    <string name="pregunta3">¿Ha viajado fuera de la ciudad en el último mes?</string>
+    <string name="boton_home">Inicio</string>
+    <string name="registrado">Ingresaste a un lugar registrado en covidalert!!!</string>
+    <string name="no_registrado">El QR no corresponde a uno generado por covidalert!!!</string>
+
 
     <string-array name="spinner">
         <item>No</item>
@@ -33,5 +31,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_main5">MainActivity5</string>
+    <string name="title_activity_main6">MainActivity6</string>
 
 </resources>

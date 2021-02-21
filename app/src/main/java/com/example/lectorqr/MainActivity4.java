@@ -27,6 +27,8 @@ import java.util.List;
 
 public class MainActivity4 extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class MainActivity4 extends AppCompatActivity {
     }
 
     public void volleyPost(String device_id, String recording_write){
-        String postUrl = "http://759c1ed65377.ngrok.io/qr/qr-recordings/";
+        String postUrl = "http://d2db2042823f.ngrok.io/qr/qr-recordings/";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         JSONObject postData = new JSONObject();
@@ -47,13 +49,18 @@ public class MainActivity4 extends AppCompatActivity {
             /*postData.put("user_write", "1");*/
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            recordingfailure();
         }
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                System.out.println(response);
+                try {
+                    Log.d("RESPONSE", response.getString("status"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                validateResponse(response);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -66,10 +73,37 @@ public class MainActivity4 extends AppCompatActivity {
 
     }
 
+    private void validateResponse(JSONObject response) {
+        try {
+            String status = response.getString("status");
+            if (status.equals("success")){
+                recordingsuccess();
+
+            }else if(status.equals("failure")){
+                recordingfailure();
+            }
+
+        } catch (JSONException e) {
+            recordingfailure();
+        }
+
+    }
+
+    private void recordingfailure() {
+        Intent recording_qr = new Intent(this, MainActivity6.class);
+        startActivity(recording_qr);
+    }
+
+    private void recordingsuccess() {
+        Intent recording_qr = new Intent(this, MainActivity5.class);
+        startActivity(recording_qr);
+    }
+
 
     public void volleyGet(String code ,String device_id){
 
-        String url = "http://759c1ed65377.ngrok.io/qr/qr-codes/code/" + code + "/";
+
+        String url = "http://d2db2042823f.ngrok.io/qr/qr-codes/code/" + code + "/";
         List<String> jsonResponses = new ArrayList<>();
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -85,13 +119,13 @@ public class MainActivity4 extends AppCompatActivity {
 
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    recordingfailure();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
+                recordingfailure();
             }
         });
 
@@ -102,23 +136,6 @@ public class MainActivity4 extends AppCompatActivity {
 
 
 
-
-
-/*
-    //funciones de botones
-    public void irAweb(String url, String postData){
-        WebView webview = new WebView(this);
-        setContentView(webview);
-        webview.postUrl(url, postData.getBytes());
-    }
-
-    public void getUrlData(String url, String code){
-        WebView webview = new WebView(this);
-        setContentView(webview);
-        String url_data = url + code;
-        webview.getUrl(url_data);
-    }*/
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -128,15 +145,9 @@ public class MainActivity4 extends AppCompatActivity {
         String recording = result.getContents();
         String device_id = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        //String url;
-        //String postData;
 
         volleyGet(recording, device_id);
-        //volleyPost(device_id, id_recording);
 
-        /*url = "https://8e5847e08103.ngrok.io/qr/qr-recordings/" ;
-        postData = "unico_code="+ datos + "&device_id="+id+"&recording_write=1";
-        irAweb(url, postData);*/
     }
 
 

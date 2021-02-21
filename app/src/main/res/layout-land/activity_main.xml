@@ -23,7 +23,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/home"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
