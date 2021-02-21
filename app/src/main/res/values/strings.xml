@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">LectorQR</string>
+    <string name="boton_form">Formulario</string>
+    <string name="boton_scan">Escanear QR</string>
+    <string name="boton_home">Escanear</string>
+    <string name="texto_telefono">Ingrese su número de celular</string>
+    <string name="pregunta1">¿Ha tenido síntomas relacionados con COVID-19?</string>
+    <string name="pregunta2">¿Ha estado en contacto con personas postivas para COVID-19?</string>
+    <string name="pregunta3">¿Ha viajado fuera de la ciudad en el último mes?</string>
+
+    <string-array name="spinner">
+        <item>No</item>
+        <item>Sí</item>
+    </string-array>
+
+    <string-array name="spinner2">
+        <item>No</item>
+        <item>Sí</item>
+    </string-array>
+
+    <string-array name="spinner3">
+        <item>No</item>
+        <item>Sí</item>
+    </string-array>
+
+
+    <string name="title_activity_main3">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>
