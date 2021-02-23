@@ -27,6 +27,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,24 +98,18 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
+                txt_location.setText(value);
                 FileOutputStream fos = null;
                 try {
-                    fos = openFileOutput(FILE_NAME, MODE_WORLD_WRITEABLE);
+                    fos = openFileOutput(FILE_NAME,MODE_APPEND);
+                    OutputStreamWriter out = new OutputStreamWriter(fos);
                     fos.write(value.getBytes());
-                    txt_location.setText(value);
+                    fos.close();
+
                 }catch (FileNotFoundException e){
                     e.printStackTrace();
                 }catch (IOException e){
                     e.printStackTrace();
-                }finally {
-                    if (fos != null){
-                        try {
-                            fos.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
                 }
 
 
@@ -126,5 +121,10 @@ public class MainActivity extends AppCompatActivity {
     public void scanQR(View viewscan){
         Intent scanButton = new Intent(this, MainActivity4.class);
         startActivity(scanButton);
+    }
+
+    public void loadGPS(View viewgps){
+        Intent gpsButton = new Intent(this, MainActivity7.class);
+        startActivity(gpsButton);
     }
 }

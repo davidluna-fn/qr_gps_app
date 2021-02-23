@@ -19,10 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LectorQR"
         android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity7"></activity>
         <activity
             android:name=".MainActivity6"
             android:label="@string/title_activity_main6"
-            android:theme="@style/Theme.LectorQR.NoActionBar"></activity>
+            android:theme="@style/Theme.LectorQR.NoActionBar" />
         <activity
             android:name=".MainActivity5"
             android:label="@string/title_activity_main5"
