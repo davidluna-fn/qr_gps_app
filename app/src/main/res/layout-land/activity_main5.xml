@@ -11,12 +11,12 @@
         android:id="@+id/Logo"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:scaleX="0.9"
-        android:scaleY="0.9"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -27,7 +27,7 @@
         android:onClick="homeButton"
         android:text="@string/boton_home"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:textColor="#E0DCD5"
         app:backgroundTint="#103E68"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,6 @@
         android:textColor="#103E68"
         app:autoSizeTextType="uniform"
         tools:ignore="MissingConstraints" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,11 @@
     <string name="boton_scan">Escanear QR</string>
     <string name="boton_home">Inicio</string>
     <string name="load_gps">Ver ruta GPS</string>
-    <string name="registrado">Ingresaste a un lugar registrado en covidalert!!!</string>
-    <string name="no_registrado">El QR no corresponde a uno generado por covidalert!!!</string>
+    <string name="registrado">Lectura de QR registrada, el código QR leído hace parte de los generados por la Aplicación COVIDALERT</string>
 
     <string name="title_activity_main5">MainActivity5</string>
     <string name="title_activity_main6">MainActivity6</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
